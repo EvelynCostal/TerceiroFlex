@@ -1,0 +1,72 @@
+<div class="pagina-cadastro">
+  <div class="cartao-cadastro">
+    <!-- Ícone de Escudo Superior -->
+    <div class="topo-icone">
+      <div class="escudo-marca">🛡️</div>
+    </div>
+
+    <h2>Criar nova conta</h2>
+    <p class="instrucao">Preencha os dados abaixo para se cadastrar no TerceiroFlex</p>
+
+    <!-- Formulário de Cadastro -->
+    <form class="formulario" (submit)="$event.preventDefault()">
+      <div class="grupo-input">
+        <label>Nome Completo</label>
+        <div class="input-com-icone">
+          <span class="icone-input">👤</span>
+          <input type="text" placeholder="Seu nome completo" required />
+        </div>
+      </div>
+
+      <div class="grupo-input">
+        <label>E-mail corporativo</label>
+        <div class="input-com-icone">
+          <span class="icone-input">✉️</span>
+          <input type="email" placeholder="seu.email@empresa.com" required />
+        </div>
+      </div>
+
+      <div class="grupo-input">
+        <label>Empresa Terceira</label>
+        <div class="input-com-icone">
+          <span class="icone-input">🏢</span>
+          <input type="text" placeholder="Nome da sua empresa" required />
+        </div>
+      </div>
+      
+      <div class="grupo-input">
+        <label>Senha</label>
+        <div class="input-com-icone">
+          <span class="icone-input">🔒</span>
+          <input type="password" placeholder="Mínimo de 8 caracteres" required />
+        </div>
+      </div>
+
+      <!-- Checkboxes LGPD -->
+      <div class="secao-lgpd">
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="aceitouTermos" name="aceitouTermos" required />
+          <span>Li e concordo com os <strong>Termos de Uso</strong> e regulamentos de compliance.</span>
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="aceitouPrivacidade" name="aceitouPrivacidade" required />
+          <span>Autorizo o tratamento dos meus dados pessoais conforme a <strong>Política de Privacidade (LGPD)</strong>.</span>
+        </label>
+      </div>
+
+      <!-- Botão condicional (só ativa se ambos forem true) -->
+      <button type="submit" class="botao-cadastrar" [disabled]="!aceitouTermos || !aceitouPrivacidade">
+        Finalizar cadastro →
+      </button>
+    </form>
+
+    <p class="rodape-link">
+      Já possui uma conta? <a routerLink="/login">Faça login</a>
+    </p>
+
+    <div class="voltar-inicio">
+      <a routerLink="/">← Voltar para a página inicial</a>
+    </div>
+  </div>
+</div>

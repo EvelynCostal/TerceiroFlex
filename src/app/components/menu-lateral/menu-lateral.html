@@ -1,0 +1,81 @@
+<!-- Botão Hambúrguer para Dispositivos Móveis -->
+<button class="hamburguer-btn" (click)="alternarMenu()" [class.ativo]="menuAberto" aria-label="Abrir Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Overlay de Fundo Escuro para Mobile -->
+<div class="menu-overlay" *ngIf="menuAberto" (click)="fecharMenu()"></div>
+
+<!-- Barra Lateral (Sidebar) -->
+<aside class="barra-lateral" [class.aberto]="menuAberto">
+  <!-- Topo da Marca -->
+  <div class="logo-area">
+    <div class="icone-marca">🛡️</div>
+    <div class="texto-marca">
+      <div class="linha-titulo">
+        <span class="titulo-marca">TerceiroFlex</span>
+        <span class="badge-pro">PRO</span>
+      </div>
+      <span class="subtitulo-marca">Gestão de Terceiros</span>
+    </div>
+  </div>
+
+
+
+  <!-- Menu Principal -->
+  <nav class="menu-navegacao">
+    <span class="rotulo-menu">MENU PRINCIPAL</span>
+    
+    <a routerLink="/dashboard" class="item-menu ativo" (click)="fecharMenu()">
+      <span class="icone-item"><img src="assets/icones/pagina-inicial.png" alt="Início"></span>
+      <span>Início</span>
+    </a>
+
+    <a routerLink="/empresas" class="item-menu" (click)="fecharMenu()">
+      <span class="icone-item"><img src="assets/icons/empresas.svg" alt="Empresas"></span>
+      <span>Empresas</span>
+    </a>
+
+    <a routerLink="/colaboradores" class="item-menu" (click)="fecharMenu()">
+      <span class="icone-item"><img src="assets/icons/colaboradores.svg" alt="Colaboradores"> </span>
+      <span>Colaboradores</span>
+    </a>
+
+    <a routerLink="/documentos" class="item-menu" (click)="fecharMenu()">
+      <span class="icone-item"><img src="assets/icons/documentos.svg" alt="Documentos"></span>
+      <span>Documentos</span>
+    </a>
+
+    <a routerLink="/quickscan" class="item-menu" (click)="fecharMenu()">
+      <span class="icone-item"><img src="assets/icons/quickscan.svg" alt="QuickScan"></span>
+      <span>QuickScan</span>
+      
+    </a>
+
+    <a routerLink="/relatorios" class="item-menu" (click)="fecharMenu()">
+      <span class="icone-item">📊</span>
+      <span>Relatórios</span>
+    </a>
+
+    <a routerLink="/configuracoes" class="item-menu" (click)="fecharMenu()">
+      <span class="icone-item">⚙️</span>
+      <span>Configurações</span>
+    </a>
+  </nav>
+
+  <!-- Rodapé da Sidebar -->
+  <div class="rodape-sidebar">
+    
+
+    <div class="perfil-usuario">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-usuario" />
+      <div class="detalhes-usuario">
+        <strong>Carla Menezes</strong>
+        <small>Analista de Conformidade ...</small>
+      </div>
+      <span class="icone-sair">🚪</span>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,92 @@
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <!-- Topo da Aplicação (Header) -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Colaboradores</h1>
+        <p>Gerencie os colaboradores terceirizados e acompanhe a documentação individual.</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        <button class="botao-topo">
+          <span>🔄</span> Reset Demo
+        </button>
+
+        <button class="botao-icone" aria-label="Notificações">
+          <span>🔔</span>
+          <span class="ponto-notificacao"></span>
+        </button>
+
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>Carla Menezes</strong>
+            <small>TerceiroFlex Central</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Barra de Filtros e Ação -->
+      <div class="barra-acoes-tabela">
+        <div class="filtros-direita">
+          <button class="botao-filtro">
+            <span>🔻</span> Todas as empresas <span>▾</span>
+          </button>
+          <button class="botao-novo-colaborador">+ Novo colaborador</button>
+        </div>
+      </div>
+
+      <!-- Grade de Cards de Colaboradores Dinâmica (*ngFor) -->
+      <div class="grade-colaboradores">
+        
+        <div class="cartao-colaborador" *ngFor="let c of colaboradores">
+          <div class="topo-card-colaborador">
+            <div class="info-principal-colaborador">
+              <!-- Interpolação de Avatar e Nome -->
+              <img [src]="c.avatar" [alt]="c.nome" class="avatar-colaborador" />
+              <div>
+                <strong>{{ c.nome }}</strong>
+                <span class="cargo-colaborador">{{ c.cargo }}</span>
+                <small class="cpf-colaborador">CPF: {{ c.cpf }}</small>
+              </div>
+            </div>
+            <span class="status-badge ativo">{{ c.status }}</span>
+          </div>
+
+          <div class="vinculo-empresa">
+            <span>🏢 {{ c.empresa }}</span>
+          </div>
+
+          <!-- Estatísticas dinamizadas via interpolação -->
+          <div class="estatisticas-documentos">
+            <div class="estatistica-item">
+              <small>Aprovados</small>
+              <strong class="verde">{{ c.aprovados }}</strong>
+            </div>
+            <div class="estatistica-item">
+              <small>Pendentes</small>
+              <strong class="amarelo">{{ c.pendentes }}</strong>
+            </div>
+            <div class="estatistica-item">
+              <small>Devolvidos</small>
+              <strong [ngClass]="c.devolvidos > 0 ? 'vermelho' : 'verde-claro'">{{ c.devolvidos }}</strong>
+            </div>
+          </div>
+
+          <a [routerLink]="['/colaborador', c.id]" class="link-pasta">
+            <span>Abrir pasta de documentos</span>
+             <span>›</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

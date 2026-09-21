@@ -1,0 +1,205 @@
+.pagina-login {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 20px;
+}
+
+.cartao-login {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  text-align: center;
+}
+
+.topo-icone {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.escudo-marca {
+  background: #6366f1;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.cartao-login h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.instrucao {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+/* Bloco de Acesso Rápido */
+.bloco-demonstracao {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 24px;
+}
+
+.titulo-demo {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.botoes-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.botao-demo {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.botao-demo:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+  background: #eff6ff;
+}
+
+/* Formulário */
+.formulario {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.grupo-input label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.input-com-icone {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icone-input {
+  position: absolute;
+  left: 14px;
+  font-size: 14px;
+}
+
+.input-com-icone input {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 13px;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #0f172a;
+}
+
+.input-com-icone input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.opcoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.lembrar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.esqueci-senha {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.esqueci-senha:hover {
+  text-decoration: underline;
+}
+
+.botao-entrar {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  width: 100%;
+}
+
+.botao-entrar:hover {
+  opacity: 0.9;
+}
+
+.rodape-link {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 24px;
+}
+
+.rodape-link a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rodape-link a:hover {
+  text-decoration: underline;
+}

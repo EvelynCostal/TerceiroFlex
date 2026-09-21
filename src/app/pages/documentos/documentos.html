@@ -1,0 +1,117 @@
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <!-- Topo da Aplicação (Header) -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Documentos</h1>
+        <p>Central geral de conferência, upload e conformidade de terceiros.</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        
+
+        <button class="botao-topo">
+          <span>🔄</span> Reset Demo
+        </button>
+
+        <button class="botao-icone" aria-label="Notificações">
+          <span>🔔</span>
+          <span class="ponto-notificacao"></span>
+        </button>
+
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>Carla Menezes</strong>
+            <small>TerceiroFlex Central</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Barra de Filtros e Ação -->
+      <div class="barra-acoes-tabela">
+        
+
+        <div class="filtros-direita">
+          <!-- Filtro por Status -->
+          <select class="botao-filtro select-filtro" (change)="atualizarStatus($event)">
+            <option value="">Todos os status</option>
+            <option value="Aprovado">Aprovado</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Em análise">Em análise</option>
+            <option value="Devolvido">Devolvido</option>
+          </select>
+
+          <!-- Filtro por Empresa -->
+          <select class="botao-filtro select-filtro" (change)="atualizarEmpresa($event)">
+            <option value="">Todas as empresas</option>
+            <option value="Serviços Alpha Ltda.">Serviços Alpha Ltda.</option>
+            <option value="Contrato Empresa">Contrato Empresa</option>
+          </select>
+
+          <button class="botao-novo-documento">+ Novo documento</button>
+        </div>
+      </div>
+
+      <!-- Tabela de Documentos -->
+      <div class="cartao-tabela">
+        <div class="tabela-container">
+          <table class="tabela-documentos">
+            <thead>
+              <tr>
+                <th>DOCUMENTO</th>
+                <th>VINCULADO A</th>
+                <th>TIPO / FORMATO</th>
+                <th>ENVIADO EM</th>
+                <th>VENCIMENTO</th>
+                <th>STATUS</th>
+                <th>AÇÃO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of documentosFiltrados">
+                <td>
+                  <div class="documento-info">
+                    <div class="documento-icone">📄</div>
+                    <div>
+                      <strong>{{ doc.titulo }}</strong>
+                      <small>{{ doc.tamanho }}</small>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="vinculo-info">
+                    <strong>{{ doc.vinculado }}</strong>
+                    <small>{{ doc.empresa }}</small>
+                  </div>
+                </td>
+                <td>
+                  <div class="tags-formato">
+                    <span class="tag-tipo">{{ doc.tipo }}</span>
+                    <span class="tag-formato">{{ doc.formato }}</span>
+                  </div>
+                </td>
+                <td>{{ doc.enviadoEm }}</td>
+                <td>{{ doc.vencimento }}</td>
+                <td><span class="status-badge" [ngClass]="doc.classeStatus">{{ doc.status }}</span></td>
+                <td><a href="#" class="link-analisar">Analisar <span>›</span></a></td>
+              </tr>
+
+              <!-- Mensagem se nenhum item for encontrado -->
+              <tr *ngIf="documentosFiltrados.length === 0">
+                <td colspan="7" class="nenhum-resultado">Nenhum documento encontrado com os filtros aplicados.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

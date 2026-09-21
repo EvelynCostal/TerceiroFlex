@@ -1,0 +1,113 @@
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <!-- Topo da Aplicação (Header) -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>QuickScan Inteligente</h1>
+        <p>Faça upload de vários documentos e agilize a triagem com leitura automática.</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        <div class="barra-busca">
+          <span class="icone-busca">🔍</span>
+          <input type="text" placeholder="Buscar empresas, colaboradores, documentos..." />
+          <span class="tecla-atalho">Ctrl K</span>
+        </div>
+
+        <button class="botao-topo">
+          <span>🔄</span> Reset Demo
+        </button>
+
+        <button class="botao-icone" aria-label="Notificações">
+          <span>🔔</span>
+          <span class="ponto-notificacao"></span>
+        </button>
+
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>Carla Menezes</strong>
+            <small>TerceiroFlex Central</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Banner Superior -->
+      <div class="banner-quickscan">
+        <div class="conteudo-banner">
+          <h2>Processamento em lote</h2>
+          <p>Envie pacotes de certificados, ASOs, folhas de ponto ou documentos cadastrais. A inteligência do TerceiroFlex reconhece o tipo de ficheiro, associa ao colaborador e sinaliza prioridades.</p>
+        </div>
+        
+      </div>
+
+      <!-- Seletor de Modo de Upload -->
+      <div class="seletor-modo-upload">
+        <span class="rotulo-modo">Selecione o tipo de envio em lote:</span>
+        <div class="botoes-modo">
+          <button class="botao-modo ativo" onclick="alternarModo('mesmo-colaborador', event)">
+            👤 Vários documentos de um mesmo colaborador
+          </button>
+          <button class="botao-modo" onclick="alternarModo('varios-colaboradores', event)">
+            👥 Vários documentos iguais de colaboradores diferentes
+          </button>
+        </div>
+      </div>
+
+      <!-- Bloco Dinâmico de Contexto (Aparece conforme a escolha) -->
+      <div id="painel-mesmo-colaborador" class="painel-contexto ativo">
+        <div class="grupo-input-lote">
+          <label>Colaborador Alvo para o Lote</label>
+          <select class="select-lote">
+            <option value="">Selecione o colaborador (ex: João da Silva - Serviços Alpha Ltda.)</option>
+            <option value="joao">João da Silva - Eletricista de Alta Tensão</option>
+            <option value="maria">Maria Souza - Técnica em Segurança</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="painel-varios-colaboradores" class="painel-contexto">
+        <div class="grupo-input-lote">
+          <label>Tipo do Documento Compartilhado no Lote</label>
+          <select class="select-lote">
+            <option value="">Selecione o tipo de documento (ex: Folha de Ponto Geral)</option>
+            <option value="ponto">Folha de Ponto Mensal</option>
+            <option value="nr10">Certificado de Reciclagem NR10</option>
+          </select>
+          <small class="dica-input">A IA fará a leitura automática do CPF/Nome em cada ficheiro para vincular ao colaborador correto.</small>
+        </div>
+      </div>
+
+      <!-- Dropzone Principal -->
+      <div class="cartao-dropzone">
+        <div class="icone-nuvem">📥</div>
+        <h3>Arraste um ou múltiplos ficheiros para análise</h3>
+        <p>Formatos suportados: PDF, JPG, PNG (até 25 MB por pacote)</p>
+        <button class="botao-selecionar">Selecionar ficheiros do computador</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function alternarModo(modo, event) {
+    document.querySelectorAll('.botao-modo').forEach(b => b.classList.remove('ativo'));
+    event.currentTarget.classList.add('ativo');
+
+    document.getElementById('painel-mesmo-colaborador').classList.remove('ativo');
+    document.getElementById('painel-varios-colaboradores').classList.remove('ativo');
+
+    if (modo === 'mesmo-colaborador') {
+      document.getElementById('painel-mesmo-colaborador').classList.add('ativo');
+    } else {
+      document.getElementById('painel-varios-colaboradores').classList.add('ativo');
+    }
+  }
+</script>

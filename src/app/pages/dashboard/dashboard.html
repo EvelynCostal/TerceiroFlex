@@ -1,0 +1,186 @@
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <!-- Topo da Aplicação (Header) -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Olá, Carla 👋</h1>
+        <p>Bem-vinda ao painel de gestão de terceiros.</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>Carla Menezes</strong>
+            <small>TerceiroFlex Central</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Carrossel de Principais Funcionalidades -->
+      <section class="secao-carrossel">
+        <div class="cabecalho-secao">
+          <h2>Destaques e Funcionalidades</h2>
+          <div class="controles-carrossel">
+            <!-- Evento Angular (click) ligado ao TypeScript -->
+            <button class="btn-controle" (click)="moverCarrossel(-1)">‹</button>
+            <button class="btn-controle" (click)="moverCarrossel(1)">›</button>
+          </div>
+        </div>
+
+        <div class="carrossel-container" #carrossel id="carrosselFuncionalidades">
+          
+          <div class="item-carrossel">
+            <div class="icone-carrossel azul">⚡</div>
+            <div class="info-carrossel">
+              <h3>QuickScan com Inteligência Artificial</h3>
+              <p>Faça upload de lotes inteiros de documentos. O sistema faz OCR automático e vincula aos colaboradores.</p>
+              <a routerLink="/quickscan" class="link-carrossel">Acessar QuickScan →</a>
+            </div>
+          </div>
+
+          <div class="item-carrossel">
+            <div class="icone-carrossel verde">🏢</div>
+            <div class="info-carrossel">
+              <h3>Gestão de Empresas Terceiras</h3>
+              <p>Monitore contratos, conformidade geral e documentações de forma centralizada e segura.</p>
+              <a routerLink="/empresas" class="link-carrossel">Gerenciar Empresas →</a>
+            </div>
+          </div>
+
+          <div class="item-carrossel">
+            <div class="icone-carrossel roxo">👥</div>
+            <div class="info-carrossel">
+              <h3>Controle de Colaboradores</h3>
+              <p>Acompanhe históricos individuais, status de aprovação de exames, ASOs e treinamentos NR10.</p>
+              <a routerLink="/colaboradores" class="link-carrossel">Ver Colaboradores →</a>
+            </div>
+          </div>
+
+          <div class="item-carrossel">
+            <div class="icone-carrossel laranja">📊</div>
+            <div class="info-carrossel">
+              <h3>Relatórios Estratégicos</h3>
+              <p>Obtenha indicadores analíticos detalhados sobre o nível de conformidade e auditoria de terceiros.</p>
+              <a routerLink="/relatorios" class="link-carrossel">Ver Relatórios →</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Resumo Geral -->
+      <section class="secao-bloco">
+        <h2>Resumo geral</h2>
+        <div class="grade-resumo">
+          <div class="cartao-resumo">
+            <span>Empresas ativas</span>
+            <h2>5</h2>
+            <small class="verde-texto">📈 100% regulares</small>
+          </div>
+          <div class="cartao-resumo">
+            <span>Colaboradores</span>
+            <h2>248</h2>
+            <small class="cinza-texto">Distribuídos em 5 contratos</small>
+          </div>
+          <div class="cartao-resumo">
+            <span>Documentos pendentes</span>
+            <h2 class="laranja-texto">128</h2>
+            <small class="laranja-texto">⏰ 5 na fila prioritária</small>
+          </div>
+          <div class="cartao-resumo">
+            <span>Conformidade geral</span>
+            <h2 class="verde-texto">97%</h2>
+            <small class="verde-texto">🛡️ Índice auditável</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grade Inferior: Documentos e Acesso Rápido -->
+      <div class="grade-inferior">
+        <!-- Documentos Pendentes -->
+        <div class="bloco-documentos">
+          <div class="cabecalho-lista">
+            <div>
+              <h3>Documentos pendentes</h3>
+              <p>Itens com vencimento próximo necessitando análise ou regularização</p>
+            </div>
+            <a href="#" class="link-ver-todos">Ver todos <span>›</span></a>
+          </div>
+
+          <div class="lista-itens">
+            <div class="item-documento">
+              <div class="icone-doc">📄</div>
+              <div class="detalhes-doc">
+                <strong>Folha de ponto</strong>
+                <span>Colaborador: João da Silva • Vencimento: 25/05/2025</span>
+              </div>
+              <div class="status-doc">
+                <span class="badge-pendente">5 pendentes</span>
+                <span class="seta">›</span>
+              </div>
+            </div>
+
+            <div class="item-documento">
+              <div class="icone-doc">📄</div>
+              <div class="detalhes-doc">
+                <strong>NR10 - Certificado</strong>
+                <span>Colaborador: João da Silva • Vencimento: 28/05/2025</span>
+              </div>
+              <div class="status-doc">
+                <span class="badge-pendente">3 pendentes</span>
+                <span class="seta">›</span>
+              </div>
+            </div>
+
+            <div class="item-documento">
+              <div class="icone-doc">📄</div>
+              <div class="detalhes-doc">
+                <strong>ASO - Atestado de Saúde</strong>
+                <span>Colaborador: Maria Souza • Vencimento: 30/05/2025</span>
+              </div>
+              <div class="status-doc">
+                <span class="badge-pendente">8 pendentes</span>
+                <span class="seta">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acesso Rápido Lateral -->
+        <div class="bloco-atalhos">
+          <div>
+            <h3>Acesso rápido</h3>
+            <p>Atalhos de navegação frequente para rotas diárias</p>
+          </div>
+
+          <div class="lista-atalhos">
+            <a href="#" class="item-atalho">
+              <span>📁 Buscar documentos</span>
+              <span>›</span>
+            </a>
+            <a href="#" class="item-atalho">
+              <span>🛡️ Relatórios de conformidade</span>
+              <span>›</span>
+            </a>
+            <a href="#" class="item-atalho">
+              <span>🏢 Empresas terceiras</span>
+              <span>›</span>
+            </a>
+            <a href="#" class="item-atalho">
+              <span>👥 Colaboradores ativos</span>
+              <span>›</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

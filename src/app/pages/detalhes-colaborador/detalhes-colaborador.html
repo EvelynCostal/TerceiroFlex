@@ -1,0 +1,227 @@
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard" *ngIf="colaborador">
+    
+    <!-- Topo da Aplicação (Header Global) -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Documentação do Colaborador</h1>
+        <p>Gestão individualizada de documentos e compliance ocupacional de {{ colaborador.nome }}</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        <div class="barra-busca">
+          <span class="icone-busca">🔍</span>
+          <input type="text" placeholder="Buscar empresas, colaboradores, documentos..." />
+          <span class="tecla-atalho">Ctrl K</span>
+        </div>
+
+        <button class="botao-topo">
+          <span>🔄</span> Reset Demo
+        </button>
+
+        <button class="botao-icone" aria-label="Notificações">
+          <span>🔔</span>
+          <span class="ponto-notificacao"></span>
+        </button>
+
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>Carla Menezes</strong>
+            <small>TerceiroFlex Central</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Barra de Navegação Superior / Breadcrumb -->
+      <div class="breadcrumb-area">
+        <div class="caminho">
+          <a routerLink="/colaboradores">Colaboradores</a>
+          <span>›</span>
+          <span class="ativo-breadcrumb">{{ colaborador.nome }}</span>
+        </div>
+
+        <a routerLink="/colaboradores" class="botao-voltar">
+          ← Voltar para lista
+        </a>
+      </div>
+
+      <!-- Layout Principal em 2 Colunas -->
+      <div class="grade-detalhe-colaborador">
+        
+        <!-- Coluna Esquerda: Cartão de Perfil do Colaborador -->
+        <div class="cartao-perfil-lateral">
+          <div class="avatar-container">
+            <img [src]="colaborador.avatar" [alt]="colaborador.nome" class="avatar-perfil-grande" />
+          </div>
+
+          <div class="dados-basicos-perfil">
+            <h2>{{ colaborador.nome }}</h2>
+            <span class="cargo-perfil">{{ colaborador.cargo }}</span>
+            <span class="status-badge ativo">{{ colaborador.status }}</span>
+          </div>
+
+          <div class="detalhes-info-grupo">
+            <div class="linha-detalhe">
+              <span class="rotulo">Empresa:</span>
+              <strong class="valor-link">🏢 {{ colaborador.empresa }}</strong>
+            </div>
+            <div class="linha-detalhe">
+              <span class="rotulo">CPF:</span>
+              <strong class="valor">{{ colaborador.cpf }}</strong>
+            </div>
+            <div class="linha-detalhe">
+              <span class="rotulo">Última atualização:</span>
+              <strong class="valor">20/05/2025</strong>
+            </div>
+            <div class="linha-detalhe">
+              <span class="rotulo">Responsável:</span>
+              <strong class="valor azul-texto">Carla Menezes</strong>
+            </div>
+          </div>
+
+          <button class="botao-novo-doc-perfil">
+            + Novo Documento
+          </button>
+        </div>
+
+        <!-- Coluna Direita: Abas e Lista de Documentos -->
+        <div class="painel-conteudo-direito">
+          
+          <!-- Abas de Navegação -->
+          <div class="abas-navegacao">
+            <button [class.ativo]="abaAtiva === 'documentos'" (click)="mudarAba('documentos')">
+              Documentos ({{ documentosColaborador.length }})
+            </button>
+            <button [class.ativo]="abaAtiva === 'dados'" (click)="mudarAba('dados')">
+              Dados pessoais
+            </button>
+            <button [class.ativo]="abaAtiva === 'historico'" (click)="mudarAba('historico')">
+              Histórico
+            </button>
+          </div>
+
+          <!-- Filtros da Lista de Documentos -->
+          <div class="barra-filtros-docs" *ngIf="abaAtiva === 'documentos'">
+            <div class="busca-doc-input">
+              <span class="icone-busca">🔍</span>
+              <input type="text" placeholder="Buscar documento..." />
+            </div>
+
+            <div class="acoes-direita-doc">
+              <select class="select-tipo-doc">
+                <option>Todos os tipos</option>
+                <option>PDF</option>
+                <option>Imagem</option>
+              </select>
+              <button class="botao-novo-documento-lote">+ Novo documento</button>
+            </div>
+          </div>
+
+          <!-- Lista de Documentos -->
+          <div class="lista-documentos-container" *ngIf="abaAtiva === 'documentos'">
+            
+            <!-- Item 1: Em análise -->
+            <div class="item-documento-card">
+              <div class="icone-doc-tipo">📄</div>
+              <div class="info-doc-corpo">
+                <strong>NR10 – Segurança em Instalações e Serviços em Eletricidade</strong>
+                <span class="sub-info-doc">Documento • PDF &nbsp;•&nbsp; Enviado em 20/05/2025 &nbsp;•&nbsp; Venc: 28/05/2026</span>
+              </div>
+              <div class="status-acao-doc">
+                <span class="status-badge-doc analise">🔵 Em análise</span>
+                <button class="botao-olho" title="Visualizar">👁️</button>
+              </div>
+            </div>
+
+            <!-- Item 2: Devolvido (Com alerta vermelho) -->
+            <div class="item-documento-card devolvido-wrapper">
+              <div class="conteudo-principal-linha">
+                <div class="icone-doc-tipo">📄</div>
+                <div class="info-doc-corpo">
+                  <strong>CPF – Cadastro de Pessoa Física</strong>
+                  <span class="sub-info-doc">Documento • PDF &nbsp;•&nbsp; Enviado em 20/05/2025 &nbsp;•&nbsp; Venc: Indeterminado</span>
+                </div>
+                <div class="status-acao-doc">
+                  <span class="status-badge-doc devolvido">🔴 Devolvido</span>
+                  <button class="botao-olho" title="Visualizar">👁️</button>
+                </div>
+              </div>
+              <!-- Caixa de Feedback do Analista -->
+              <div class="feedback-analista">
+                <strong>Feedback do Analista:</strong> Documento ilegível. As bordas foram cortadas na digitalização e não é possível validar o dígito verificador. Enviei uma nova versão nítida em PDF colorido.
+              </div>
+            </div>
+
+            <!-- Item 3: Aprovado -->
+            <div class="item-documento-card">
+              <div class="icone-doc-tipo">📄</div>
+              <div class="info-doc-corpo">
+                <strong>ASO – Atestado de Saúde Ocupacional Periódico</strong>
+                <span class="sub-info-doc">Documento • PDF &nbsp;•&nbsp; Enviado em 17/05/2025 &nbsp;•&nbsp; Venc: 30/05/2026</span>
+              </div>
+              <div class="status-acao-doc">
+                <span class="status-badge-doc aprovado">🟢 Aprovado</span>
+                <button class="botao-olho" title="Visualizar">👁️</button>
+              </div>
+            </div>
+
+            <!-- Item 4: Pendente -->
+            <div class="item-documento-card">
+              <div class="icone-doc-tipo">📄</div>
+              <div class="info-doc-corpo">
+                <strong>Folha de Ponto – Mês Anterior</strong>
+                <span class="sub-info-doc">Documento • PDF &nbsp;•&nbsp; Enviado em 10/05/2025 &nbsp;•&nbsp; Venc: 25/05/2025</span>
+              </div>
+              <div class="status-acao-doc">
+                <span class="status-badge-doc pendente">⏰ Pendente</span>
+                <button class="botao-olho" title="Visualizar">👁️</button>
+              </div>
+            </div>
+
+            <!-- Item 5: Comprovante de Endereço -->
+            <div class="item-documento-card">
+              <div class="icone-doc-tipo">📄</div>
+              <div class="info-doc-corpo">
+                <strong>Comprovante de Endereço Residencial</strong>
+                <span class="sub-info-doc">Documento • PDF &nbsp;•&nbsp; Enviado em 18/05/2025 &nbsp;•&nbsp; Venc: 18/08/2025</span>
+              </div>
+              <div class="status-acao-doc">
+                <span class="status-badge-doc aprovado">🟢 Aprovado</span>
+                <button class="botao-olho" title="Visualizar">👁️</button>
+              </div>
+            </div>
+
+            <!-- Item 6: Foto do Crachá -->
+            <div class="item-documento-card">
+              <div class="icone-doc-tipo imagem">🖼️</div>
+              <div class="info-doc-corpo">
+                <strong>Foto do Colaborador para Crachá</strong>
+                <span class="sub-info-doc">Imagem • JPG &nbsp;•&nbsp; Enviado em 20/05/2025 &nbsp;•&nbsp; Venc: Indeterminado</span>
+              </div>
+              <div class="status-acao-doc">
+                <span class="status-badge-doc aprovado">🟢 Aprovado</span>
+                <button class="botao-olho" title="Visualizar">👁️</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Conteúdo alternativo para outras abas -->
+          <div class="conteudo-aba-vazia" *ngIf="abaAtiva !== 'documentos'">
+            <p>Informações de {{ abaAtiva === 'dados' ? 'dados pessoais' : 'histórico' }} em desenvolvimento.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

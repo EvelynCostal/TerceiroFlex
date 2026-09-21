@@ -1,0 +1,219 @@
+
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+<div class="painel-dashboard">
+    
+  <!-- Topo da Aplicação (Header) -->
+  <header class="cabecalho-principal">
+    <div class="saudacao-area">
+      <h1>Empresas</h1>
+      <p>Gerencie as empresas prestadoras de serviços.</p>
+    </div>
+
+    <div class="acoes-cabecalho">
+      
+      <button class="botao-topo">
+        <span>🔄</span> Reset Demo
+      </button>
+
+      <button class="botao-icone" aria-label="Notificações">
+        <span>🔔</span>
+        <span class="ponto-notificacao"></span>
+      </button>
+
+      <div class="perfil-topo">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+        <div class="info-usuario">
+          <strong>Carla Menezes</strong>
+          <small>TerceiroFlex Central</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Central -->
+  <div class="conteudo-corpo">
+    
+    <!-- Barra de Filtros e Ação -->
+    <div class="barra-acoes-tabela">
+      <div class="busca-tabela">
+        <span class="icone-busca">🔍</span>
+        <input type="text" placeholder="Buscar por nome, CNPJ ou tipo de serviço..." />
+      </div>
+
+      <div class="filtros-direita">
+        <button class="botao-filtro">
+          <span>🔻</span> Todos os status <span>▾</span>
+        </button>
+        <button class="botao-nova-empresa">+ Nova empresa</button>
+      </div>
+    </div>
+
+    <!-- Tabela de Empresas -->
+    <div class="cartao-tabela">
+      <div class="tabela-container">
+        <table class="tabela-empresas">
+          <thead>
+            <tr>
+              <th>EMPRESA / CNPJ</th>
+              <th>RESPONSÁVEL</th>
+              <th>COLABORADORES</th>
+              <th>DOC. PENDENTES</th>
+              <th>CONFORMIDADE</th>
+              <th>STATUS</th>
+              <th>AÇÃO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="empresa-info">
+                  <div class="empresa-avatar">🏢</div>
+                  <div>
+                    <strong>Serviços Alpha Ltda.</strong>
+                    <small>CNPJ: 12.345.678/0001-90</small>
+                    <span class="servico-tag">Instalações Elétricas e Manutenção</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="responsavel-info">
+                  <strong>João Oliveira</strong>
+                  <small>joao.oliveira&#64;servicosalpha.com.br</small>
+                </div>
+              </td>
+              <td><strong>42</strong></td>
+              <td><span class="badge-pendencia">⏰ 12</span></td>
+              <td>
+                <div class="conformidade-wrapper">
+                  <strong>96%</strong>
+                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 96%;"></div></div>
+                </div>
+              </td>
+              <td><span class="status-badge ativa">Ativa</span></td>
+              <td><a href="#" class="link-detalhes">Ver detalhes <span>›</span></a></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="empresa-info">
+                  <div class="empresa-avatar">🏗️</div>
+                  <div>
+                    <strong>Construtora Horizonte</strong>
+                    <small>CNPJ: 23.456.789/0001-12</small>
+                    <span class="servico-tag">Engenharia Civil e Obras</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="responsavel-info">
+                  <strong>Eduardo Guimarães</strong>
+                  <small>eduardo&#64;horizonteeng.com.br</small>
+                </div>
+              </td>
+              <td><strong>88</strong> </td>
+              <td><span class="badge-pendencia">⏰ 24</span></td>
+              <td>
+                <div class="conformidade-wrapper">
+                  <strong>92%</strong>
+                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 92%;"></div></div>
+                </div>
+              </td>
+              <td><span class="status-badge ativa">Ativa</span></td>
+              <td><a href="#" class="link-detalhes">Ver detalhes <span>›</span></a></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="empresa-info">
+                  <div class="empresa-avatar">❄️</div>
+                  <div>
+                    <strong>Manutenção Prime</strong>
+                    <small>CNPJ: 34.567.890/0001-34</small>
+                    <span class="servico-tag">Climatização e HVAC</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="responsavel-info">
+                  <strong>Marcos Vinicius</strong>
+                  <small>marcos&#64;manutencaoprime.com.br</small>
+                </div>
+              </td>
+              <td><strong>31</strong> </td>
+              <td><span class="badge-pendencia">⏰ 6</span></td>
+              <td>
+                <div class="conformidade-wrapper">
+                  <strong>98%</strong>
+                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 98%;"></div></div>
+                </div>
+              </td>
+              <td><span class="status-badge ativa">Ativa</span></td>
+              <td><a href="#" class="link-detalhes">Ver detalhes <span>›</span></a></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="empresa-info">
+                  <div class="empresa-avatar">💻</div>
+                  <div>
+                    <strong>TechSupport Serviços</strong>
+                    <small>CNPJ: 45.678.901/0001-56</small>
+                    <span class="servico-tag">Cabeamento e Infraestrutura de TI</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="responsavel-info">
+                  <strong>Fernanda Lins</strong>
+                  <small>fernanda&#64;techsupport.net.br</small>
+                </div>
+              </td>
+              <td><strong>19</strong> </td>
+              <td><span class="badge-pendencia">⏰ 3</span></td>
+              <td>
+                <div class="conformidade-wrapper">
+                  <strong>99%</strong>
+                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 99%;"></div></div>
+                </div>
+              </td>
+              <td><span class="status-badge ativa">Ativa</span></td>
+              <td><a href="#" class="link-detalhes">Ver detalhes <span>›</span></a></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="empresa-info">
+                  <div class="empresa-avatar">🛡️</div>
+                  <div>
+                    <strong>Grupo NovaBase</strong>
+                    <small>CNPJ: 56.789.012/0001-78</small>
+                    <span class="servico-tag">Segurança Patrimonial e Vigilância</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="responsavel-info">
+                  <strong>Cláudio Ramos</strong>
+                  <small>contato&#64;novabasebr.com</small>
+                </div>
+              </td>
+              <td><strong>68</strong></td>
+              <td><span class="badge-pendencia laranja">⏰ 38</span></td>
+              <td>
+                <div class="conformidade-wrapper">
+                  <strong>84%</strong>
+                  <div class="barra-progresso"><div class="preenchimento laranja" style="width: 84%;"></div></div>
+                </div>
+              </td>
+              <td><span class="status-badge analise">Em Análise</span></td>
+              <td><a href="#" class="link-detalhes">Ver detalhes <span>›</span></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

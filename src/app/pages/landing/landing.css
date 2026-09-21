@@ -1,0 +1,300 @@
+.pagina-landing {
+  min-height: 100vh;
+  background-color: #f8fafc; /* Fundo claro geral */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #0f172a; /* Letras principais escuras */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.barra-topo {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icone-marca {
+  font-size: 20px;
+  background: #6366f1;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.texto-marca {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo-marca {
+  font-weight: 800;
+  font-size: 16px;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.subtitulo-marca {
+  font-size: 9px;
+  color: #64748b;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.acoes-topo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.link-login {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.link-login:hover {
+  color: #0f172a;
+}
+
+.botao-amarelo {
+  background: #eab308;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.botao-amarelo:hover {
+  opacity: 0.9;
+}
+
+/* Seção Hero */
+.secao-hero {
+  padding: 60px 5%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 50px;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+.badge-superior {
+  display: inline-flex;
+  align-items: center;
+  background: #ede9fe;
+  color: #6366f1;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+  border: 1px solid #ddd6fe;
+}
+
+.titulo-hero {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: #0f172a;
+}
+
+.texto-destaque {
+  color: #6366f1;
+}
+
+.subtitulo-hero {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+.botoes-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.botao-roxo {
+  background: #6366f1;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: background 0.2s;
+}
+
+.botao-roxo:hover {
+  background: #4f46e5;
+}
+
+.botao-transparente {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.botao-transparente:hover {
+  background: #f1f5f9;
+}
+
+.lista-beneficios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* Container da Imagem do Mockup */
+.mockup-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-mockup {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.08));
+  transform: perspective(1000px) rotateY(-2deg) rotateX(2deg);
+  transition: transform 0.3s ease;
+}
+
+.imagem-mockup:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+/* Seção Prática */
+.secao-pratica {
+  padding: 60px 5%;
+  max-width: 1350px;
+  margin: 0 auto;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cabecalho-pratica {
+  margin-bottom: 40px;
+}
+
+.cabecalho-pratica small {
+  font-size: 10px;
+  font-weight: 700;
+  color: #6366f1;
+  letter-spacing: 0.1em;
+}
+
+.cabecalho-pratica h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.cabecalho-pratica p {
+  color: #475569;
+  font-size: 15px;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.grade-cards-pratica {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.cartao-pratica {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cartao-pratica:hover {
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.icone-pratica {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.cartao-pratica h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.cartao-pratica p {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Responsividade para Tablets e Celulares */
+@media (max-width: 968px) {
+  .secao-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  .subtitulo-hero {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .botoes-hero {
+    justify-content: center;
+  }
+
+  .lista-beneficios {
+    justify-content: center;
+  }
+
+  .barra-topo {
+    padding: 0 20px;
+  }
+}

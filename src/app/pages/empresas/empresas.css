@@ -1,0 +1,457 @@
+.layout-principal {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+.layout-principal .painel-dashboard {
+  flex: 1;
+  margin-left: 280px; 
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho Superior */
+.cabecalho-principal {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.saudacao-area h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.saudacao-area p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.acoes-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.barra-busca {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icone-busca {
+  position: absolute;
+  left: 12px;
+  font-size: 13px;
+}
+
+.barra-busca input {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 9px 40px 9px 36px;
+  font-size: 13px;
+  width: 320px;
+  outline: none;
+  color: #0f172a;
+  transition: border-color 0.2s;
+}
+
+.barra-busca input:focus {
+  border-color: #6366f1;
+  background: #ffffff;
+}
+
+.tecla-atalho {
+  position: absolute;
+  right: 10px;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.botao-topo {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao-topo:hover {
+  background: #f1f5f9;
+}
+
+.botao-icone {
+  position: relative;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ponto-notificacao {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  background: #ef4444;
+  border-radius: 50%;
+}
+
+.perfil-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.avatar-topo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info-usuario strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.info-usuario small {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Corpo do Painel */
+.conteudo-corpo {
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Barra de Ações da Tabela */
+.barra-acoes-tabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.busca-tabela {
+  position: relative;
+  flex: 1;
+  max-width: 450px;
+}
+
+.busca-tabela input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 11px 16px 11px 38px;
+  font-size: 13px;
+  outline: none;
+  color: #0f172a;
+  transition: border-color 0.2s;
+}
+
+.busca-tabela input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.filtros-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.botao-filtro {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao-filtro:hover {
+  background: #f1f5f9;
+}
+
+.botao-nova-empresa {
+  background: #6366f1;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: background 0.2s;
+}
+
+.botao-nova-empresa:hover {
+  background: #4f46e5;
+}
+
+/* Cartão e Tabela */
+.cartao-tabela {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.tabela-container {
+  overflow-x: auto;
+}
+
+.tabela-empresas {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabela-empresas th {
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  letter-spacing: 0.05em;
+}
+
+.tabela-empresas td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.tabela-empresas tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela-empresas tr:hover {
+  background: #fafcfd;
+}
+
+/* Célula Empresa */
+.empresa-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.empresa-avatar {
+  width: 36px;
+  height: 36px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.empresa-info strong {
+  display: block;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.empresa-info small {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.servico-tag {
+  display: inline-block;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Célula Responsável */
+.responsavel-info strong {
+  display: block;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.responsavel-info small {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* Alocados e Pendências */
+td small {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.badge-pendencia {
+  background: #fef3c7;
+  color: #d97706;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.badge-pendencia.laranja {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+/* Conformidade */
+.conformidade-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100px;
+}
+
+.conformidade-wrapper strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.barra-progresso {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.preenchimento {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.preenchimento.verde { background: #10b981; }
+.preenchimento.laranja { background: #f59e0b; }
+
+/* Status Badges */
+.status-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.status-badge.ativa {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.analise {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+/* Ação */
+.link-detalhes {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6366f1;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.link-detalhes:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .barra-acoes-tabela {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .busca-tabela {
+    max-width: 100%;
+  }
+
+  .filtros-direita {
+    justify-content: space-between;
+  }
+
+  .cabecalho-principal {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .acoes-cabecalho {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .barra-busca input {
+    width: 100%;
+  }
+
+  .conteudo-corpo {
+    padding: 20px;
+  }
+}

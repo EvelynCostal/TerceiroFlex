@@ -1,0 +1,162 @@
+<div class="layout-principal">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <!-- Cabeçalho Superior -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Relatórios</h1>
+        <p>Indicadores estratégicos de conformidade, pendências e auditoria de terceiros.</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        <div class="barra-busca">
+          <span class="icone-busca">🔍</span>
+          <input type="text" placeholder="Buscar empresas, colaboradores, documentos..." />
+          <span class="tecla-atalho">Ctrl K</span>
+        </div>
+
+        <button class="botao-topo">
+          <span>🔄</span> Reset Demo
+        </button>
+
+        <button class="botao-icone" aria-label="Notificações">
+          <span>🔔</span>
+          <span class="ponto-notificacao"></span>
+        </button>
+
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>Carla Menezes</strong>
+            <small>TerceiroFlex Central</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Barra de Filtros e Exportação -->
+      <div class="barra-filtros-relatorio">
+        <div class="grupo-filtros-esq">
+          <button class="botao-filtro-sup">
+            📅 Últimos 30 dias <span>▾</span>
+          </button>
+          <button class="botao-filtro-sup">
+            🏢 Todas as empresas <span>▾</span>
+          </button>
+        </div>
+
+        <button class="botao-exportar">
+          <span>📥</span> Exportar relatório
+        </button>
+      </div>
+
+      <!-- Grade de Cartões de Indicadores (4 colunas) -->
+      <div class="grade-indicadores">
+        
+        <div class="cartao-indicador">
+          <span class="rotulo-indicador">Conformidade geral</span>
+          <h2 class="valor-verde">97%</h2>
+          <small class="sub-verde">📈 +2.4% no último mês</small>
+        </div>
+
+        <div class="cartao-indicador">
+          <span class="rotulo-indicador">Documentos analisados</span>
+          <h2>1.248</h2>
+          <small class="sub-cinza">Média de 48h por análise</small>
+        </div>
+
+        <div class="cartao-indicador">
+          <span class="rotulo-indicador">Documentos pendentes</span>
+          <h2 class="valor-laranja">128</h2>
+          <small class="sub-laranja">Dentro do prazo regulatório</small>
+        </div>
+
+        <div class="cartao-indicador">
+          <span class="rotulo-indicador">Documentos devolvidos</span>
+          <h2 class="valor-vermelho">42</h2>
+          <small class="sub-vermelho">Aguardando correção da terceira</small>
+        </div>
+
+      </div>
+
+      <!-- Grade de Gráficos (Inferior) -->
+      <div class="grade-graficos">
+        
+        <!-- Gráfico 1: Conformidade por Empresa Terceira -->
+        <div class="cartao-grafico-coluna">
+          <div class="cabecalho-cartao-grafico">
+            <h3>Conformidade por Empresa Terceira</h3>
+            <p>Taxa percentual de documentação regular</p>
+          </div>
+
+          <div class="container-grafico-barras">
+            <div class="eixo-y">
+              <span>100</span>
+              <span>75</span>
+              <span>50</span>
+              <span>25</span>
+              <span>0</span>
+            </div>
+
+            <div class="barras-area">
+              <div class="coluna-barra">
+                <div class="barra" style="height: 96%;"></div>
+                <span class="legenda-barra">Serviços</span>
+              </div>
+              <div class="coluna-barra">
+                <div class="barra" style="height: 92%;"></div>
+                <span class="legenda-barra">Construtora</span>
+              </div>
+              <div class="coluna-barra">
+                <div class="barra" style="height: 98%;"></div>
+                <span class="legenda-barra">Manutenção</span>
+              </div>
+              <div class="coluna-barra">
+                <div class="barra" style="height: 99%;"></div>
+                <span class="legenda-barra">TechSupport</span>
+              </div>
+              <div class="coluna-barra destaque">
+                <div class="barra laranja" style="height: 84%;"></div>
+                <span class="legenda-barra">Grupo</span>
+                <!-- Tooltip flutuante igual à imagem -->
+                <div class="tooltip-grafico">
+                  <strong>Grupo</strong>
+                  <span>Conformidade : 84%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfico 2: Documentos por Status -->
+        <div class="cartao-grafico-coluna">
+          <div class="cabecalho-cartao-grafico">
+            <h3>Documentos por Status</h3>
+            <p>Distribuição atual do repositório</p>
+          </div>
+
+          <div class="donut-container">
+            <!-- Simulação visual do gráfico de Rosca (Donut Chart) -->
+            <div class="grafico-rosca">
+              <div class="centro-rosca"></div>
+            </div>
+          </div>
+
+          <!-- Legenda do Gráfico -->
+          <div class="legenda-rosca">
+            <div class="item-legenda"><span class="bola verde"></span> Aprovados: <strong>1248</strong></div>
+            <div class="item-legenda"><span class="bola azul"></span> Em análise: <strong>128</strong></div>
+            <div class="item-legenda"><span class="bola amarelo"></span> Pendentes: <strong>84</strong></div>
+            <div class="item-legenda"><span class="bola vermelho"></span> Devolvidos: <strong>42</strong></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

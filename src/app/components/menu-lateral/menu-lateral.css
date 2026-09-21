@@ -1,0 +1,287 @@
+.barra-lateral {
+  width: 280px;
+  height: 100vh;
+  background-color: #0b0f19;
+  color: #94a3b8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Área do Logo */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.icone-marca {
+  background: #6366f1;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+.linha-titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.titulo-marca {
+  font-weight: 800;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.badge-pro {
+  background: #facc15;
+  color: #0f172a;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.subtitulo-marca {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Simulador de Perfil */
+.bloco-simulador {
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.rotulo-simulador, .rotulo-menu {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.seletor-perfil {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.seta-baixo {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* Menu Principal */
+.menu-navegacao {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.rotulo-menu {
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.item-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.item-menu:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.icone-item {
+  font-size: 16px;
+}
+
+.badge-ia {
+  margin-left: auto;
+  background: #facc15;
+  color: #0f172a;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* Rodapé da Sidebar */
+.rodape-sidebar {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-landing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 0;
+}
+
+.link-landing:hover {
+  color: #ffffff;
+}
+
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.avatar-usuario {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detalhes-usuario {
+  flex: 1;
+  overflow: hidden;
+}
+
+.detalhes-usuario strong {
+  display: block;
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.detalhes-usuario small {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icone-sair {
+  font-size: 16px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.icone-sair:hover {
+  color: #ffffff;
+}
+
+/* --- BOTÃO HAMBÚRGUER --- */
+.hamburguer-btn {
+  display: none; /* Oculto em telas grandes */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1200;
+  background: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hamburguer-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animação do Hambúrguer para "X" */
+.hamburguer-btn.ativo span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburguer-btn.ativo span:nth-child(2) {
+  opacity: 0;
+}
+.hamburguer-btn.ativo span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay Fundo Escuro */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 950;
+  backdrop-filter: blur(2px);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+  .hamburguer-btn {
+    display: flex; /* Exibe o botão hambúrguer em tablets e celulares */
+  }
+
+  .barra-lateral {
+    transform: translateX(-100%); /* Esconde a sidebar por padrão */
+  }
+
+  .barra-lateral.aberto {
+    transform: translateX(0); /* Mostra a sidebar quando ativa */
+  }
+}
