@@ -10,13 +10,7 @@
       </div>
 
       <div class="acoes-cabecalho">
-        
-
-        <button class="botao-topo">
-          <span>🔄</span> Reset Demo
-        </button>
-
-        <button class="botao-icone" aria-label="Notificações">
+          <button class="botao-icone" aria-label="Notificações">
           <span>🔔</span>
           <span class="ponto-notificacao"></span>
         </button>
@@ -100,7 +94,7 @@
                 <td>{{ doc.enviadoEm }}</td>
                 <td>{{ doc.vencimento }}</td>
                 <td><span class="status-badge" [ngClass]="doc.classeStatus">{{ doc.status }}</span></td>
-                <td><a href="#" class="link-analisar">Analisar <span>›</span></a></td>
+                <td><a href="/enviar-documento" class="link-analisar">Analisar <span>›</span></a></td>
               </tr>
 
               <!-- Mensagem se nenhum item for encontrado -->

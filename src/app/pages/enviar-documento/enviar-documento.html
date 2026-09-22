@@ -1,0 +1,121 @@
+<div class="layout-principal">
+  <!-- Menu Lateral da Aplicação -->
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <!-- Topo da Aplicação (Header) -->
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Envio de Documento</h1>
+        <p>Submeta arquivos para triagem técnica e conformidade da equipe</p>
+      </div>
+
+      <div class="acoes-cabecalho">
+        <div class="perfil-topo">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Usuário" class="avatar-topo" />
+          <div class="info-usuario">
+            <strong>João Oliveira</strong>
+            <small>Serviços Alpha Ltda.</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <div class="conteudo-corpo">
+      
+      <!-- Breadcrumb de Navegação -->
+      <div class="breadcrumb-area">
+        <span>Documentos</span> › <span>Novo Envio</span>
+      </div>
+
+      <!-- Grade Principal de Duas Colunas -->
+      <div class="grade-envio">
+        
+        <!-- Coluna Esquerda: Área de Upload e Pré-visualização -->
+        <div class="bloco-upload-container">
+          <div class="cabecalho-bloco">
+            <h3>Arquivo do Documento</h3>
+            <span class="formato-info">PDF, PNG ou JPG (Máx. 10MB)</span>
+          </div>
+
+          <!-- Se nenhum arquivo foi selecionado: Zona de Arraste/Clique -->
+          <div class="dropzone" *ngIf="!arquivoSelecionado" (click)="fileInput.click()">
+            <div class="icone-upload">📁</div>
+            <h4>Clique aqui ou arraste o arquivo</h4>
+            <p>Faça o upload do documento digitalizado ou PDF original</p>
+            <input type="file" #fileInput hidden (change)="onFileSelected($event)" accept=".pdf,.png,.jpg,.jpeg">
+          </div>
+
+          <!-- Se o arquivo foi selecionado: Pré-visualização e Detalhes do Ficheiro -->
+          <div class="preview-area" *ngIf="arquivoSelecionado">
+            <div class="info-arquivo-selecionado">
+              <span class="icone-doc-ok">📄</span>
+              <div>
+                <strong>{{ arquivoSelecionado.name }}</strong>
+                <small>{{ (arquivoSelecionado.size / 1024).toFixed(1) }} KB</small>
+              </div>
+              <button class="botao-remover" (click)="removerArquivo()">✕ Trocar arquivo</button>
+            </div>
+
+            <div class="mock-visualizador">
+              <div class="documento-simulado">
+                <span class="selo-verificacao">TERCEIROFLEX • SUBMISSÃO</span>
+                <h4>Pré-visualização do Arquivo</h4>
+                <p>O arquivo está pronto para ser enviado e auditado pela equipe de conformidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Metadados e Ação de Envio -->
+        <div class="bloco-detalhes-envio">
+          <div class="card-status-envio">
+            <span class="badge-status">⏳ Aguardando Envio</span>
+            <p>Preencha as informações do documento para submeter à triagem.</p>
+          </div>
+
+          <form class="formulario-envio" (submit)="$event.preventDefault(); enviarDocumento()">
+            <div class="grupo-input">
+              <label>Tipo de Documento</label>
+              <select [(ngModel)]="tipoDocumento" name="tipoDocumento" class="input-select" required>
+                <option value="" disabled>Selecione o documento</option>
+                <option value="Folha de Ponto">Folha de Ponto - Mês Anterior</option>
+                <option value="NR10 - Certificado">NR10 - Certificado de Segurança</option>
+                <option value="ASO - Atestado">ASO (Atestado de Saúde Ocupacional)</option>
+                <option value="Ficha de EPI">Ficha de Recebimento de EPI</option>
+              </select>
+            </div>
+
+            <div class="grupo-input">
+                <label>Colaborador Vinculado</label>
+                <select [(ngModel)]="colaboradorIdSelecionado" name="colaboradorIdSelecionado" class="input-select" required>
+                    <option value="" disabled selected>Selecione o colaborador</option>
+                    <option *ngFor="let colab of colaboradores" [value]="colab.id">
+                        {{ colab.nome }} — {{ colab.cargo }}
+                </option>
+            </select>
+            </div>
+
+            <div class="grupo-input">
+              <label>Data de Vencimento</label>
+              <input type="date" [(ngModel)]="dataVencimento" name="dataVencimento" />
+            </div>
+
+            <div class="grupo-input">
+              <label>Observações para o Analista</label>
+              <textarea [(ngModel)]="observacoes" name="observacoes" rows="3" placeholder="Ex: Documento enviado conforme solicitação de reanálise..."></textarea>
+            </div>
+
+            <!-- Botão ativado apenas quando o arquivo, tipo e colaborador forem preenchidos -->
+            <button type="submit" class="botao-enviar-doc" [disabled]="!arquivoSelecionado || !tipoDocumento || !colaboradorIdSelecionado">
+              Enviar para Análise ➔
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

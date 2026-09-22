@@ -12,11 +12,10 @@
 <aside class="barra-lateral" [class.aberto]="menuAberto">
   <!-- Topo da Marca -->
   <div class="logo-area">
-    <div class="icone-marca">🛡️</div>
+    <img src="favicon.png" alt="Logo TerceiroFlex" class="logo-principal" />
     <div class="texto-marca">
       <div class="linha-titulo">
         <span class="titulo-marca">TerceiroFlex</span>
-        <span class="badge-pro">PRO</span>
       </div>
       <span class="subtitulo-marca">Gestão de Terceiros</span>
     </div>
@@ -29,38 +28,38 @@
     <span class="rotulo-menu">MENU PRINCIPAL</span>
     
     <a routerLink="/dashboard" class="item-menu ativo" (click)="fecharMenu()">
-      <span class="icone-item"><img src="assets/icones/pagina-inicial.png" alt="Início"></span>
+      <span class="icone-item"><img src="icones/pagina-inicial.png" ></span>
       <span>Início</span>
     </a>
 
     <a routerLink="/empresas" class="item-menu" (click)="fecharMenu()">
-      <span class="icone-item"><img src="assets/icons/empresas.svg" alt="Empresas"></span>
+      <span class="icone-item"><img src="icones/companhia.png" ></span>
       <span>Empresas</span>
     </a>
 
     <a routerLink="/colaboradores" class="item-menu" (click)="fecharMenu()">
-      <span class="icone-item"><img src="assets/icons/colaboradores.svg" alt="Colaboradores"> </span>
+      <span class="icone-item"><img src="icones/pessoas.png" > </span>
       <span>Colaboradores</span>
     </a>
 
     <a routerLink="/documentos" class="item-menu" (click)="fecharMenu()">
-      <span class="icone-item"><img src="assets/icons/documentos.svg" alt="Documentos"></span>
+      <span class="icone-item"><img src="icones/arquivo-e-pasta.png"></span>
       <span>Documentos</span>
     </a>
 
     <a routerLink="/quickscan" class="item-menu" (click)="fecharMenu()">
-      <span class="icone-item"><img src="assets/icons/quickscan.svg" alt="QuickScan"></span>
+      <span class="icone-item"><img src="icones/scan.png" ></span>
       <span>QuickScan</span>
       
     </a>
 
     <a routerLink="/relatorios" class="item-menu" (click)="fecharMenu()">
-      <span class="icone-item">📊</span>
+      <span class="icone-item"><img src="icones/relatorio.png" ></span>
       <span>Relatórios</span>
     </a>
 
     <a routerLink="/configuracoes" class="item-menu" (click)="fecharMenu()">
-      <span class="icone-item">⚙️</span>
+      <span class="icone-item"><img src="icones/configuracao.png" ></span>
       <span>Configurações</span>
     </a>
   </nav>
@@ -75,7 +74,7 @@
         <strong>Carla Menezes</strong>
         <small>Analista de Conformidade ...</small>
       </div>
-      <span class="icone-sair">🚪</span>
+      <button class="botao-sair" (click)="sair()">Sair</button>
     </div>
   </div>
 </aside>

@@ -1,7 +1,7 @@
 .barra-lateral {
   width: 280px;
   height: 100vh;
-  background-color: #0b0f19;
+  background-color: #0a0120;
   color: #94a3b8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   display: flex;
@@ -133,8 +133,27 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+.logo-principal {
+  width: 64px;
+  height: 64;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .icone-item {
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.icone-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .badge-ia {

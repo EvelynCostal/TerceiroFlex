@@ -25,6 +25,6 @@ export class SideMenu {
 
   sair() {
     this.authService.fazerLogout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/landing']);
   }
 }

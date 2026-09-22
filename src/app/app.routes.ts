@@ -10,6 +10,7 @@ import { Quickscan } from './pages/quickscan/quickscan';
 import { DetalhesColaborador } from './pages/detalhes-colaborador/detalhes-colaborador';
 import { Relatorios } from './pages/relatorios/relatorios';
 import { authGuard } from './guards/auth-guard';
+import { EnviarDocumento } from './pages/enviar-documento/enviar-documento';
 
 export const routes: Routes = [
 
@@ -24,5 +25,6 @@ export const routes: Routes = [
   { path: 'quickscan', component: Quickscan, canActivate: [authGuard] },
   { path: 'colaborador/:id', component: DetalhesColaborador, canActivate: [authGuard] },
   { path: 'relatorios', component: Relatorios, canActivate: [authGuard] },
+  { path: 'enviar-documento', component: EnviarDocumento, canActivate: [authGuard] },
 
 ];
