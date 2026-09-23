@@ -1,0 +1,111 @@
+<div class="layout-principal" *ngIf="documentoAtual">
+  <app-side-menu></app-side-menu>
+  
+  <div class="painel-dashboard">
+    <header class="cabecalho-principal">
+      <div class="saudacao-area">
+        <h1>Detalhes da Devolução</h1>
+        <p>O documento enviado requer correções para ser aprovado</p>
+      </div>
+      <div class="acoes-cabecalho">
+        <button class="botao-sair" (click)="sair()">
+          <img src="icones/sair.png" alt="Sair" />
+        </button>
+      </div>
+    </header>
+
+    <div class="conteudo-corpo">
+      <div class="breadcrumb-area">
+        <div class="caminho">
+          <a routerLink="/documentos">Documentos</a> › <span class="ativo-breadcrumb">Revisão de Devolução</span>
+        </div>
+        <a routerLink="/documentos" class="botao-voltar">← Voltar para lista</a>
+      </div>
+
+      <div class="grade-devolucao">
+        <!-- Coluna Esquerda: Informações puxadas do Banco Falso -->
+        <div class="cartao-info-doc">
+          <div class="status-topo-aviso">
+            <span class="badge-devolvido-grande">Documento Devolvido</span>
+            <small>Status atualizado no sistema</small>
+          </div>
+
+          <div class="detalhes-documento-box">
+            <div class="linha-detalhe">
+              <span class="rotulo">Título do Documento</span>
+              <strong class="valor">{{ documentoAtual.titulo }}</strong>
+            </div>
+            <div class="linha-detalhe">
+              <span class="rotulo">Colaborador Vinculado</span>
+              <strong class="valor">{{ documentoAtual.vinculadoA }}</strong>
+            </div>
+            <div class="linha-detalhe">
+              <span class="rotulo">Empresa Parceira</span>
+              <strong class="valor">{{ documentoAtual.empresa }}</strong>
+            </div>
+            <div class="linha-detalhe">
+              <span class="rotulo">Data do Envio Anterior</span>
+              <strong class="valor">{{ documentoAtual.enviadoEm }}</strong>
+            </div>
+          </div>
+
+          <!-- Caixa de Motivo e Sugestão -->
+          <div class="caixa-feedback-analista">
+            <h4>Motivo da Devolução</h4>
+            <p>O arquivo enviado anteriormente apresentou divergências nas diretrizes de conformidade ou o documento está ilegível.</p>
+            
+            <div class="sugestao-reentrega">
+              <strong>O que fazer na reentrega:</strong>
+              <ul>
+                <li>Digitalize novamente o arquivo original em alta resolução (PDF ou JPG).</li>
+                <li>Confirme se todas as informações e assinaturas estão visíveis.</li>
+                <li>Submeta o arquivo atualizado utilizando o painel ao lado.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Área de Reenvio -->
+        <div class="bloco-reenvio-container">
+          <div class="cabecalho-bloco">
+            <h3>Fazer Nova Submissão</h3>
+            <span class="formato-info">Substitua o arquivo incorreto</span>
+          </div>
+
+          <div class="dropzone" *ngIf="!arquivoNovo" (click)="fileInput.click()">
+            <div class="icone-upload">📁</div>
+            <h4>Clique aqui para anexar o arquivo corrigido</h4>
+            <p>Arraste ou selecione o PDF / imagem ajustada (Máx. 10MB)</p>
+            <input type="file" #fileInput hidden (change)="onFileSelected($event)" accept=".pdf,.png,.jpg,.jpeg">
+          </div>
+
+          <div class="preview-area" *ngIf="arquivoNovo">
+            <div class="info-arquivo-selecionado">
+              <span class="icone-doc-ok">📄</span>
+              <div>
+                <strong>{{ arquivoNovo.name }}</strong>
+                <small>{{ (arquivoNovo.size / 1024).toFixed(1) }} KB</small>
+              </div>
+              <button class="botao-remover" (click)="removerArquivo()">✕ Trocar</button>
+            </div>
+          </div>
+
+          <div class="grupo-input" style="margin-top: 10px;">
+            <label>Observação para o Analista (Opcional)</label>
+            <textarea [(ngModel)]="observacaoReenvio" rows="3" placeholder="Ex: Arquivo substituído conforme orientação..."></textarea>
+          </div>
+
+          <button class="botao-enviar-doc" [disabled]="!arquivoNovo" (click)="reenviarDocumento()">
+            Enviar Documento Corrigido ➔
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Caso não encontre nenhum documento devolvido no mock -->
+<div class="conteudo-aba-vazia" *ngIf="!documentoAtual">
+  <p>Nenhum documento devolvido encontrado no momento.</p>
+  <a routerLink="/documentos" class="botao-voltar">Voltar para Documentos</a>
+</div>

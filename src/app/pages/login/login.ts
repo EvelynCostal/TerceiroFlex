@@ -18,12 +18,17 @@ export class Login {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  entrar() {
+ entrar() {
+    // Reseta o erro anterior ao tentar novamente
+    this.erro = false;
+
+    // Executa a validação no serviço de autenticação
     const sucesso = this.authService.fazerLogin(this.email, this.senha);
+    
     if (sucesso) {
-      this.router.navigate(['/']); // Redireciona para o Dashboard após logar
+      this.router.navigate(['/dashboard']); 
     } else {
-      this.erro = true;
+      this.erro = true; 
     }
   }
 }

@@ -25,17 +25,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.icone-marca {
-  background: #6366f1;
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+.logo-area img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .linha-titulo {
@@ -288,6 +281,29 @@
   background: rgba(0, 0, 0, 0.6);
   z-index: 950;
   backdrop-filter: blur(2px);
+}
+
+.botao-sair {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao-sair img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.botao-sair:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* --- RESPONSIVIDADE --- */

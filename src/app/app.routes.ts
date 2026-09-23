@@ -11,6 +11,7 @@ import { DetalhesColaborador } from './pages/detalhes-colaborador/detalhes-colab
 import { Relatorios } from './pages/relatorios/relatorios';
 import { authGuard } from './guards/auth-guard';
 import { EnviarDocumento } from './pages/enviar-documento/enviar-documento';
+import { DocumentoDevolvido } from './pages/documento-devolvido/documento-devolvido';
 
 export const routes: Routes = [
 
@@ -26,5 +27,6 @@ export const routes: Routes = [
   { path: 'colaborador/:id', component: DetalhesColaborador, canActivate: [authGuard] },
   { path: 'relatorios', component: Relatorios, canActivate: [authGuard] },
   { path: 'enviar-documento', component: EnviarDocumento, canActivate: [authGuard] },
+  { path: 'documento-devolvido', component: DocumentoDevolvido, canActivate: [authGuard]}
 
 ];

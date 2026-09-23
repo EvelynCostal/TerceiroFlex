@@ -65,8 +65,8 @@
 }
 
 .botao-amarelo {
-  background: #eab308;
-  color: #ffffff;
+  background: #7dfad4;
+  color: #000000;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 14px;
@@ -273,7 +273,7 @@
   margin-bottom: 12px;
 }
 .icone-marca {
-  width: 128px;
+  width: 32px;
   height: 128px;
   object-fit: contain;
 }

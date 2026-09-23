@@ -21,21 +21,18 @@
 
 .topo-icone {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  width: 100%;
   margin-bottom: 16px;
 }
 
-.escudo-marca {
-  background: #6366f1;
-  color: white;
+.topo-icone img {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  object-fit: contain;
+  display: block;
 }
 
 .cartao-login h2 {
@@ -119,11 +116,6 @@
   align-items: center;
 }
 
-.icone-input {
-  position: absolute;
-  left: 14px;
-  font-size: 14px;
-}
 
 .input-com-icone input {
   width: 100%;
@@ -185,6 +177,22 @@
 
 .botao-entrar:hover {
   opacity: 0.9;
+}
+
+.alerta-erro {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .rodape-link {
