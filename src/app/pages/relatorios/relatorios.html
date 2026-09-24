@@ -10,7 +10,6 @@
       </div>
 
       <div class="acoes-cabecalho">
-        
         <div class="perfil-topo">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Carla Menezes" class="avatar-topo" />
           <div class="info-usuario">
@@ -26,44 +25,37 @@
       
       <!-- Barra de Filtros e Exportação -->
       <div class="barra-filtros-relatorio">
-        <div class="grupo-filtros-esq">
-          <button class="botao-filtro-sup">
-            📅 Últimos 30 dias <span>▾</span>
-          </button>
-          <button class="botao-filtro-sup">
-            🏢 Todas as empresas <span>▾</span>
-          </button>
-        </div>
+        
 
-        <button class="botao-exportar">
-          <span>📥</span> Exportar relatório
+        <button class="botao-exportar" (click)="calcularMetricas()">
+           Atualizar Dados
         </button>
       </div>
 
-      <!-- Grade de Cartões de Indicadores (4 colunas) -->
+      <!-- Grade de Cartões de Indicadores (Ligados ao Mock) -->
       <div class="grade-indicadores">
         
         <div class="cartao-indicador">
-          <span class="rotulo-indicador">Conformidade geral</span>
-          <h2 class="valor-verde">97%</h2>
-          <small class="sub-verde">📈 +2.4% no último mês</small>
+          <span class="rotulo-indicador">Conformidade geral (Média)</span>
+          <h2 class="valor-verde">{{ conformidadeGeral }}%</h2>
+          <small class="sub-verde">📈 Baseado em {{ empresas.length }} empresas</small>
         </div>
 
         <div class="cartao-indicador">
-          <span class="rotulo-indicador">Documentos analisados</span>
-          <h2>1.248</h2>
-          <small class="sub-cinza">Média de 48h por análise</small>
+          <span class="rotulo-indicador">Total de Documentos</span>
+          <h2>{{ totalDocumentosAnalisados }}</h2>
+          <small class="sub-cinza">Repositório unificado</small>
         </div>
 
         <div class="cartao-indicador">
           <span class="rotulo-indicador">Documentos pendentes</span>
-          <h2 class="valor-laranja">128</h2>
-          <small class="sub-laranja">Dentro do prazo regulatório</small>
+          <h2 class="valor-laranja">{{ totalPendentes }}</h2>
+          <small class="sub-laranja">Aguardando envio/triagem</small>
         </div>
 
         <div class="cartao-indicador">
           <span class="rotulo-indicador">Documentos devolvidos</span>
-          <h2 class="valor-vermelho">42</h2>
+          <h2 class="valor-vermelho">{{ totalDevolvidos }}</h2>
           <small class="sub-vermelho">Aguardando correção da terceira</small>
         </div>
 
@@ -72,11 +64,11 @@
       <!-- Grade de Gráficos (Inferior) -->
       <div class="grade-graficos">
         
-        <!-- Gráfico 1: Conformidade por Empresa Terceira -->
+        <!-- Gráfico 1: Conformidade por Empresa Terceira (Gerado Dinamicamente do Mock) -->
         <div class="cartao-grafico-coluna">
           <div class="cabecalho-cartao-grafico">
             <h3>Conformidade por Empresa Terceira</h3>
-            <p>Taxa percentual de documentação regular</p>
+            <p>Taxa percentual de documentação regular extraída do banco</p>
           </div>
 
           <div class="container-grafico-barras">
@@ -88,56 +80,46 @@
               <span>0</span>
             </div>
 
-            <div class="barras-area">
-              <div class="coluna-barra">
-                <div class="barra" style="height: 96%;"></div>
-                <span class="legenda-barra">Serviços</span>
-              </div>
-              <div class="coluna-barra">
-                <div class="barra" style="height: 92%;"></div>
-                <span class="legenda-barra">Construtora</span>
-              </div>
-              <div class="coluna-barra">
-                <div class="barra" style="height: 98%;"></div>
-                <span class="legenda-barra">Manutenção</span>
-              </div>
-              <div class="coluna-barra">
-                <div class="barra" style="height: 99%;"></div>
-                <span class="legenda-barra">TechSupport</span>
-              </div>
-              <div class="coluna-barra destaque">
-                <div class="barra laranja" style="height: 84%;"></div>
-                <span class="legenda-barra">Grupo</span>
-                <!-- Tooltip flutuante igual à imagem -->
+           <div class="barras-area">
+              <!-- Itera dinamicamente sobre a LISTA_EMPRESAS do banco falso -->
+              <div class="coluna-barra" *ngFor="let emp of empresas">
+                <!-- A barra fica azul se a conformidade for >= 90%, e laranja/atencao se for menor -->
+                <div class="barra" 
+                    [ngClass]="{'alerta': emp.conformidade < 90}" 
+                    [style.height.%]="emp.conformidade">
+                </div>
+                
+                <span class="legenda-barra">{{ emp.nome.split(' ')[0] }}</span>
+                
+                <!-- Tooltip flutuante com dados reais -->
                 <div class="tooltip-grafico">
-                  <strong>Grupo</strong>
-                  <span>Conformidade : 84%</span>
+                  <strong>{{ emp.nome }}</strong>
+                  <span>Conformidade: {{ emp.conformidade }}%</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Gráfico 2: Documentos por Status -->
+        <!-- Gráfico 2: Documentos por Status (Calculado do Mock) -->
         <div class="cartao-grafico-coluna">
           <div class="cabecalho-cartao-grafico">
             <h3>Documentos por Status</h3>
-            <p>Distribuição atual do repositório</p>
+            <p>Distribuição atual do repositório em memória</p>
           </div>
 
           <div class="donut-container">
-            <!-- Simulação visual do gráfico de Rosca (Donut Chart) -->
             <div class="grafico-rosca">
               <div class="centro-rosca"></div>
             </div>
           </div>
 
-          <!-- Legenda do Gráfico -->
+          <!-- Legenda Dinâmica com os totais reais do banco -->
           <div class="legenda-rosca">
-            <div class="item-legenda"><span class="bola verde"></span> Aprovados: <strong>1248</strong></div>
-            <div class="item-legenda"><span class="bola azul"></span> Em análise: <strong>128</strong></div>
-            <div class="item-legenda"><span class="bola amarelo"></span> Pendentes: <strong>84</strong></div>
-            <div class="item-legenda"><span class="bola vermelho"></span> Devolvidos: <strong>42</strong></div>
+            <div class="item-legenda"><span class="bola verde"></span> Aprovados: <strong>{{ totalAprovados }}</strong></div>
+            <div class="item-legenda"><span class="bola azul"></span> Em análise: <strong>{{ totalEmAnalise }}</strong></div>
+            <div class="item-legenda"><span class="bola amarelo"></span> Pendentes: <strong>{{ totalPendentes }}</strong></div>
+            <div class="item-legenda"><span class="bola vermelho"></span> Devolvidos: <strong>{{ totalDevolvidos }}</strong></div>
           </div>
         </div>
 

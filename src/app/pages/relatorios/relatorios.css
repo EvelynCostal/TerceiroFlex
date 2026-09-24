@@ -137,7 +137,6 @@
   gap: 24px;
 }
 
-/* Barra de Filtros e Exportar */
 .barra-filtros-relatorio {
   display: flex;
   justify-content: space-between;
@@ -174,7 +173,6 @@
   cursor: pointer;
 }
 
-/* Grade de Indicadores */
 .grade-indicadores {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -218,7 +216,6 @@
 .sub-laranja { color: #f59e0b; }
 .sub-vermelho { color: #ef4444; }
 
-/* Grade de Gráficos */
 .grade-graficos {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -248,7 +245,6 @@
   color: #64748b;
 }
 
-/* Gráfico de Barras */
 .container-grafico-barras {
   display: flex;
   height: 240px;
@@ -289,10 +285,26 @@
   width: 100%;
   background: #6366f1;
   border-radius: 6px 6px 0 0;
+  animation: crescerBarra 1s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+  transform-origin: bottom;
+}
+
+
+.barra.alerta {
+  background: #f59e0b; 
 }
 
 .barra.laranja {
-  background: #cbd5e1; /* Fundo cinza na barra da direita como na imagem */
+  background: #cbd5e1;
+}
+
+@keyframes crescerBarra {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 .legenda-barra {
@@ -301,12 +313,23 @@
   font-weight: 500;
 }
 
-/* Tooltip flutuante */
+.coluna-barra {
+  position: relative; /* Torna a coluna a referência para o posicionamento do balão */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 48px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
 .coluna-barra.destaque {
   position: relative;
 }
 
-.tooltip-grafico {
+/* Esconde o tooltip por padrão */
+.coluna-barra .tooltip-grafico {
   position: absolute;
   bottom: 70px;
   left: -20px;
@@ -320,6 +343,19 @@
   gap: 2px;
   width: 110px;
   z-index: 10;
+  
+  /* Adiciona propriedades de ocultação e transição suave */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* Mostra o tooltip apenas quando o rato passar por cima da coluna da barra */
+.coluna-barra:hover .tooltip-grafico {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .tooltip-grafico strong {
@@ -333,7 +369,6 @@
   color: #6366f1;
 }
 
-/* Gráfico Rosca / Donut */
 .donut-container {
   display: flex;
   justify-content: center;
@@ -341,6 +376,7 @@
   padding: 10px 0;
 }
 
+/* Animação de rotação suave no gráfico rosca */
 .grafico-rosca {
   width: 160px;
   height: 160px;
@@ -350,6 +386,18 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: girarRosca 1.2s ease-out forwards;
+}
+
+@keyframes girarRosca {
+  0% {
+    transform: rotate(-90deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
 }
 
 .centro-rosca {
@@ -386,7 +434,6 @@
 .bola.amarelo { background: #f59e0b; }
 .bola.vermelho { background: #ef4444; }
 
-/* Responsividade */
 @media (max-width: 1200px) {
   .grade-indicadores {
     grid-template-columns: repeat(2, 1fr);

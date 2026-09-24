@@ -63,7 +63,7 @@ export class EnviarDocumento implements OnInit {
 
       LISTA_DOCUMENTOS.push(novoDocumento);
       alert(`Documento enviado com sucesso para ${nomeColaborador}!`);
-      this.router.navigate(['/']);
+      this.router.navigate(['/colaborador/:id']);
     }
   }
 }

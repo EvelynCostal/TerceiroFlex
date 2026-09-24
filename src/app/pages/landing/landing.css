@@ -1,16 +1,15 @@
 .pagina-landing {
   min-height: 100vh;
-  background-color: #f8fafc; /* Fundo claro geral */
+  background-color: #f8fafc;
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
-  color: #0f172a; /* Letras principais escuras */
+  color: #0f172a;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
 }
 
-/* Navbar */
 .barra-topo {
   height: 90px;
   display: flex;
@@ -26,7 +25,6 @@
   align-items: center;
   gap: 12px;
 }
-
 
 .texto-marca {
   display: flex;
@@ -73,13 +71,13 @@
   font-weight: 700;
   text-decoration: none;
   transition: opacity 0.2s;
+  white-space: nowrap;
 }
 
 .botao-amarelo:hover {
   opacity: 0.9;
 }
 
-/* Seção Hero */
 .secao-hero {
   padding: 60px 5%;
   display: grid;
@@ -142,6 +140,7 @@
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
   transition: background 0.2s;
+  text-align: center;
 }
 
 .botao-roxo:hover {
@@ -158,6 +157,7 @@
   font-weight: 600;
   text-decoration: none;
   transition: background 0.2s;
+  text-align: center;
 }
 
 .botao-transparente:hover {
@@ -173,7 +173,6 @@
   font-weight: 500;
 }
 
-/* Container da Imagem do Mockup */
 .mockup-container {
   width: 100%;
   display: flex;
@@ -194,7 +193,6 @@
   transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
 }
 
-/* Seção Prática */
 .secao-pratica {
   padding: 60px 5%;
   max-width: 1350px;
@@ -272,13 +270,13 @@
   object-fit: contain;
   margin-bottom: 12px;
 }
+
 .icone-marca {
   width: 32px;
-  height: 128px;
+  height: 32px;
   object-fit: contain;
 }
 
-/* Responsividade para Tablets e Celulares */
 @media (max-width: 968px) {
   .secao-hero {
     grid-template-columns: 1fr;
@@ -301,5 +299,98 @@
 
   .barra-topo {
     padding: 0 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .barra-topo {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .titulo-marca {
+    font-size: 14px;
+  }
+
+  .acoes-topo {
+    gap: 10px;
+  }
+
+  .link-login {
+    font-size: 13px;
+  }
+
+  .botao-amarelo {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .secao-hero {
+    padding: 30px 16px;
+    gap: 30px;
+  }
+
+  .titulo-hero {
+    font-size: 30px;
+  }
+
+  .subtitulo-hero {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .botoes-hero {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .botao-roxo,
+  .botao-transparente {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
+
+  .lista-beneficios {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .secao-pratica {
+    padding: 40px 16px;
+  }
+
+  .grade-cards-pratica {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao-pratica {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .titulo-hero {
+    font-size: 26px;
+  }
+
+  .subtitulo-hero {
+    font-size: 13px;
+  }
+
+  .acoes-topo {
+    gap: 8px;
+  }
+
+  .botao-amarelo {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .link-login {
+    display: none;
   }
 }

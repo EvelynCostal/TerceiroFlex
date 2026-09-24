@@ -17,7 +17,6 @@
   flex-direction: column;
 }
 
-/* Cabeçalho Superior */
 .cabecalho-principal {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
@@ -67,6 +66,7 @@
   outline: none;
   color: #0f172a;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 
 .barra-busca input:focus {
@@ -155,7 +155,6 @@
   color: #64748b;
 }
 
-/* Corpo do Painel */
 .conteudo-corpo {
   padding: 30px 40px;
   display: flex;
@@ -163,7 +162,6 @@
   gap: 24px;
 }
 
-/* Barra de Ações da Tabela */
 .barra-acoes-tabela {
   display: flex;
   justify-content: space-between;
@@ -187,6 +185,7 @@
   outline: none;
   color: #0f172a;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 
 .busca-tabela input:focus {
@@ -230,13 +229,13 @@
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 .botao-nova-empresa:hover {
   background: #4f46e5;
 }
 
-/* Cartão e Tabela */
 .cartao-tabela {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -263,6 +262,7 @@
   padding: 14px 20px;
   border-bottom: 1px solid #e2e8f0;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .tabela-empresas td {
@@ -271,6 +271,7 @@
   font-size: 13px;
   color: #334155;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .tabela-empresas tr:last-child td {
@@ -281,7 +282,6 @@
   background: #fafcfd;
 }
 
-/* Célula Empresa */
 .empresa-info {
   display: flex;
   align-items: flex-start;
@@ -322,7 +322,6 @@
   margin-top: 2px;
 }
 
-/* Célula Responsável */
 .responsavel-info strong {
   display: block;
   color: #0f172a;
@@ -335,7 +334,6 @@
   font-size: 11px;
 }
 
-/* Alocados e Pendências */
 td small {
   color: #64748b;
   font-size: 11px;
@@ -356,7 +354,6 @@ td small {
   color: #c2410c;
 }
 
-/* Conformidade */
 .conformidade-wrapper {
   display: flex;
   flex-direction: column;
@@ -385,7 +382,6 @@ td small {
 .preenchimento.verde { background: #10b981; }
 .preenchimento.laranja { background: #f59e0b; }
 
-/* Status Badges */
 .status-badge {
   font-size: 11px;
   font-weight: 700;
@@ -404,7 +400,6 @@ td small {
   color: #854d0e;
 }
 
-/* Ação */
 .link-detalhes {
   font-size: 13px;
   font-weight: 600;
@@ -419,8 +414,12 @@ td small {
   text-decoration: underline;
 }
 
-/* Responsividade */
 @media (max-width: 1024px) {
+  .layout-principal .painel-dashboard {
+    margin-left: 0;
+    width: 100%;
+  }
+
   .barra-acoes-tabela {
     flex-direction: column;
     align-items: stretch;
@@ -453,5 +452,62 @@ td small {
 
   .conteudo-corpo {
     padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cabecalho-principal {
+    padding: 16px;
+  }
+
+  .conteudo-corpo {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .filtros-direita {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botao-filtro,
+  .botao-nova-empresa {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .tabela-empresas th,
+  .tabela-empresas td {
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 450px) {
+  .cabecalho-principal {
+    padding: 12px;
+  }
+
+  .saudacao-area h1 {
+    font-size: 18px;
+  }
+
+  .saudacao-area p {
+    font-size: 12px;
+  }
+
+  .conteudo-corpo {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .cartao-tabela {
+    border-radius: 12px;
+  }
+
+  .botao-filtro,
+  .botao-nova-empresa {
+    padding: 10px 14px;
+    font-size: 12px;
   }
 }

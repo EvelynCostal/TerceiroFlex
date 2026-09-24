@@ -28,14 +28,19 @@
     <!-- Barra de Filtros e Ação -->
     <div class="barra-acoes-tabela">
       <div class="busca-tabela">
-        <span class="icone-busca">🔍</span>
+        <span class="icone-busca"></span>
         <input type="text" placeholder="Buscar por nome, CNPJ ou tipo de serviço..." />
       </div>
 
       <div class="filtros-direita">
-        <button class="botao-filtro">
-          <span>🔻</span> Todos os status <span>▾</span>
-        </button>
+        <div class="filtros-direita">
+          <select class="botao-filtro" [(ngModel)]="statusSelecionado" (change)="filtrarPorStatus(statusSelecionado)">
+            <option value="todos">Todos os status</option>
+            <option value="Ativa">Ativa</option>
+            <option value="Em Análise">Em Análise</option>
+          </select>
+          
+        </div>
         <button class="botao-nova-empresa">+ Nova empresa</button>
       </div>
     </div>
@@ -55,150 +60,39 @@
               <th>AÇÃO</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody class="corpo-tabela">
+            <tr *ngFor="let empresa of empresasFiltradas">
               <td>
                 <div class="empresa-info">
-                  
                   <div>
-                    <strong>Serviços Alpha Ltda.</strong>
-                    <small>CNPJ: 12.345.678/0001-90</small>
-                    <span class="servico-tag">Instalações Elétricas e Manutenção</span>
+                    <strong>{{ empresa.nome }}</strong>
+                    <small>CNPJ: {{ empresa.cnpj }}</small>
+                    <span class="servico-tag">{{ empresa.servico }}</span>
                   </div>
                 </div>
               </td>
               <td>
                 <div class="responsavel-info">
-                  <strong>João Oliveira</strong>
-                  <small>joao.oliveira&#64;servicosalpha.com.br</small>
+                  <strong>{{ empresa.responsavelNome }}</strong>
+                  <small>{{ empresa.responsavelEmail }}</small>
                 </div>
               </td>
-              <td><strong>42</strong></td>
-              <td><span class="badge-pendencia">12</span></td>
+              <td><strong>{{ empresa.colaboradoresAlocados }}</strong></td>
+              <td><span class="badge-pendencia" [ngClass]="{'laranja': empresa.docPendentes > 20}">{{ empresa.docPendentes }}</span></td>
               <td>
                 <div class="conformidade-wrapper">
-                  <strong>96%</strong>
-                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 96%;"></div></div>
-                </div>
-              </td>
-              <td><span class="status-badge ativa">Ativa</span></td>
-              <td><a  class="link-detalhes">Ver detalhes <span>›</span></a></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="empresa-info">
-                  
-                  <div>
-                    <strong>Construtora Horizonte</strong>
-                    <small>CNPJ: 23.456.789/0001-12</small>
-                    <span class="servico-tag">Engenharia Civil e Obras</span>
+                  <strong>{{ empresa.conformidade }}%</strong>
+                  <div class="barra-progresso">
+                    <div class="preenchimento" [ngClass]="{'verde': empresa.conformidade >= 90, 'laranja': empresa.conformidade < 90}" [style.width.%]="empresa.conformidade"></div>
                   </div>
                 </div>
               </td>
               <td>
-                <div class="responsavel-info">
-                  <strong>Eduardo Guimarães</strong>
-                  <small>eduardo&#64;horizonteeng.com.br</small>
-                </div>
+                <span class="status-badge" [ngClass]="{'ativa': empresa.status === 'Ativa', 'analise': empresa.status === 'Em Análise'}">
+                  {{ empresa.status }}
+                </span>
               </td>
-              <td><strong>88</strong> </td>
-              <td><span class="badge-pendencia">24</span></td>
-              <td>
-                <div class="conformidade-wrapper">
-                  <strong>92%</strong>
-                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 92%;"></div></div>
-                </div>
-              </td>
-              <td><span class="status-badge ativa">Ativa</span></td>
               <td><a class="link-detalhes">Ver detalhes <span>›</span></a></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="empresa-info">
-                  
-                  <div>
-                    <strong>Manutenção Prime</strong>
-                    <small>CNPJ: 34.567.890/0001-34</small>
-                    <span class="servico-tag">Climatização e HVAC</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="responsavel-info">
-                  <strong>Marcos Vinicius</strong>
-                  <small>marcos&#64;manutencaoprime.com.br</small>
-                </div>
-              </td>
-              <td><strong>31</strong> </td>
-              <td><span class="badge-pendencia">6</span></td>
-              <td>
-                <div class="conformidade-wrapper">
-                  <strong>98%</strong>
-                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 98%;"></div></div>
-                </div>
-              </td>
-              <td><span class="status-badge ativa">Ativa</span></td>
-              <td><a  class="link-detalhes">Ver detalhes <span>›</span></a></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="empresa-info">
-                  
-                  <div>
-                    <strong>TechSupport Serviços</strong>
-                    <small>CNPJ: 45.678.901/0001-56</small>
-                    <span class="servico-tag">Cabeamento e Infraestrutura de TI</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="responsavel-info">
-                  <strong>Fernanda Lins</strong>
-                  <small>fernanda&#64;techsupport.net.br</small>
-                </div>
-              </td>
-              <td><strong>19</strong> </td>
-              <td><span class="badge-pendencia">3</span></td>
-              <td>
-                <div class="conformidade-wrapper">
-                  <strong>99%</strong>
-                  <div class="barra-progresso"><div class="preenchimento verde" style="width: 99%;"></div></div>
-                </div>
-              </td>
-              <td><span class="status-badge ativa">Ativa</span></td>
-              <td><a class="link-detalhes">Ver detalhes <span>›</span></a></td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="empresa-info">
-                  
-                  <div>
-                    <strong>Grupo NovaBase</strong>
-                    <small>CNPJ: 56.789.012/0001-78</small>
-                    <span class="servico-tag">Segurança Patrimonial e Vigilância</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="responsavel-info">
-                  <strong>Cláudio Ramos</strong>
-                  <small>contato&#64;novabasebr.com</small>
-                </div>
-              </td>
-              <td><strong>68</strong></td>
-              <td><span class="badge-pendencia laranja">38</span></td>
-              <td>
-                <div class="conformidade-wrapper">
-                  <strong>84%</strong>
-                  <div class="barra-progresso"><div class="preenchimento laranja" style="width: 84%;"></div></div>
-                </div>
-              </td>
-              <td><span class="status-badge analise">Em Análise</span></td>
-              <td><a href="" class="link-detalhes">Ver detalhes <span>›</span></a></td>
             </tr>
           </tbody>
         </table>
