@@ -171,6 +171,7 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .grade-indicadores {
@@ -231,6 +232,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-x: auto;
 }
 
 .cabecalho-cartao-grafico h3 {
@@ -250,6 +252,7 @@
   height: 240px;
   position: relative;
   padding-top: 10px;
+  min-width: 320px;
 }
 
 .eixo-y {
@@ -272,6 +275,7 @@
 }
 
 .coluna-barra {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -289,13 +293,8 @@
   transform-origin: bottom;
 }
 
-
 .barra.alerta {
-  background: #f59e0b; 
-}
-
-.barra.laranja {
-  background: #cbd5e1;
+  background: #f59e0b;
 }
 
 @keyframes crescerBarra {
@@ -311,28 +310,14 @@
   font-size: 11px;
   color: #64748b;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-.coluna-barra {
-  position: relative; /* Torna a coluna a referência para o posicionamento do balão */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  width: 48px;
-  height: 100%;
-  justify-content: flex-end;
-}
-
-.coluna-barra.destaque {
-  position: relative;
-}
-
-/* Esconde o tooltip por padrão */
 .coluna-barra .tooltip-grafico {
   position: absolute;
-  bottom: 70px;
-  left: -20px;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
   background: #ffffff;
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -341,21 +326,19 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  width: 110px;
+  width: 120px;
   z-index: 10;
-  
-  /* Adiciona propriedades de ocultação e transição suave */
+  text-align: center;
+  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
-/* Mostra o tooltip apenas quando o rato passar por cima da coluna da barra */
 .coluna-barra:hover .tooltip-grafico {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .tooltip-grafico strong {
@@ -376,7 +359,6 @@
   padding: 10px 0;
 }
 
-/* Animação de rotação suave no gráfico rosca */
 .grafico-rosca {
   width: 160px;
   height: 160px;
@@ -434,6 +416,7 @@
 .bola.amarelo { background: #f59e0b; }
 .bola.vermelho { background: #ef4444; }
 
+/* Responsividade Avançada para Tablets e Celulares */
 @media (max-width: 1200px) {
   .grade-indicadores {
     grid-template-columns: repeat(2, 1fr);
@@ -448,32 +431,80 @@
     margin-left: 0;
     width: 100%;
   }
+
   .grade-indicadores {
     grid-template-columns: 1fr;
   }
+
   .barra-filtros-relatorio {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
   }
+
   .grupo-filtros-esq {
     flex-direction: column;
   }
+
   .cabecalho-principal {
     padding: 15px 20px;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
   }
+
   .acoes-cabecalho {
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .barra-busca input {
-    width: 100%;
-  }
+
   .conteudo-corpo {
     padding: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .cabecalho-principal {
+    padding: 12px;
+  }
+
+  .saudacao-area h1 {
+    font-size: 18px;
+  }
+
+  .saudacao-area p {
+    font-size: 11px;
+  }
+
+  .conteudo-corpo {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .botao-filtro-sup,
+  .botao-exportar {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .cartao-indicador {
+    padding: 18px;
+  }
+
+  .cartao-indicador h2 {
+    font-size: 26px;
+  }
+
+  .cartao-grafico-coluna {
+    padding: 16px;
+  }
+
+  .legenda-rosca {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
   }
 }
